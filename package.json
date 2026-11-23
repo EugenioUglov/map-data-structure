@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/EugenioUglov/map-data-structure"
   },
   "files": [
     "mapDataStructure.js",

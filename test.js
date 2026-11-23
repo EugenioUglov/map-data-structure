@@ -11,8 +11,8 @@ assert.strictEqual(mds.isMap(null), false);
 
 // getStringified / getParsed with nested Map
 const original = new Map([
-  ['name', 'Алиса'],
-  ['settings', new Map([['theme', 'dark'], ['lang', 'ru']])],
+  ['name', 'Alice'],
+  ['settings', new Map([['theme', 'dark'], ['lang', 'en']])],
   ['count', 42],
 ]);
 
@@ -21,13 +21,13 @@ assert.strictEqual(typeof json, 'string');
 
 const restored = mds.getParsed(json);
 assert.ok(restored instanceof Map);
-assert.strictEqual(restored.get('name'), 'Алиса');
+assert.strictEqual(restored.get('name'), 'Alice');
 assert.strictEqual(restored.get('count'), 42);
 
 const settings = restored.get('settings');
 assert.ok(settings instanceof Map);
 assert.strictEqual(settings.get('theme'), 'dark');
-assert.strictEqual(settings.get('lang'), 'ru');
+assert.strictEqual(settings.get('lang'), 'en');
 
 // Empty map round-trip
 const emptyJson = mds.getStringified(new Map());
@@ -35,4 +35,4 @@ const emptyRestored = mds.getParsed(emptyJson);
 assert.ok(emptyRestored instanceof Map);
 assert.strictEqual(emptyRestored.size, 0);
 
-console.log('Все тесты пройдены ✅');
+console.log('All tests passed ✅');

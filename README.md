@@ -1,38 +1,38 @@
 # map-data-structure
 
-Утилитный класс для сериализации и десериализации структур JavaScript `Map` в JSON-строки и обратно, с поддержкой вложенных `Map`.
+Utility class for serializing and deserializing JavaScript `Map` structures to and from JSON strings, with support for nested `Map`s.
 
-## Установка
+## Installation
 
 ```bash
 npm install map-data-structure
 ```
 
-## Использование
+## Usage
 
 ```js
 const MapDataStructure = require('map-data-structure');
 const mds = new MapDataStructure();
 
-// Создаём Map (включая вложенные)
+// Create a Map (including nested Maps)
 const map = new Map([
-  ['name', 'Алиса'],
-  ['settings', new Map([['theme', 'dark'], ['lang', 'ru']])],
+  ['name', 'Alice'],
+  ['settings', new Map([['theme', 'dark'], ['lang', 'en']])],
   ['count', 42],
 ]);
 
-// Сериализация в JSON-строку
+// Serialize to JSON string
 const json = mds.getStringified(map);
 console.log(json);
-// {"name":"Алиса","settings":{"_type":"map","map":[["theme","dark"],["lang","ru"]]},"count":42}
+// {"name":"Alice","settings":{"_type":"map","map":[["theme","dark"],["lang","en"]]},"count":42}
 
-// Десериализация обратно в Map
+// Deserialize back to Map
 const restored = mds.getParsed(json);
 console.log(restored instanceof Map);          // true
 console.log(restored.get('settings') instanceof Map); // true
 console.log(restored.get('settings').get('theme'));   // 'dark'
 
-// Проверка, является ли значение Map
+// Check if value is a Map
 mds.isMap(new Map()); // true
 mds.isMap({});        // false
 ```
@@ -40,17 +40,23 @@ mds.isMap({});        // false
 ## API
 
 ### `new MapDataStructure()`
-Создаёт экземпляр утилиты.
+Creates a utility instance.
 
 ### `isMap(dataToCheck) → boolean`
-Возвращает `true`, если переданное значение является экземпляром `Map`, иначе `false`.
+Returns `true` if the provided value is a `Map` instance, otherwise `false`.
 
 ### `getStringified(map) → string`
-Сериализует `Map` (включая вложенные `Map`) в JSON-строку.
+Serializes a `Map` (including nested `Map`s) to a JSON string.
 
 ### `getParsed(mapString) → Map`
-Восстанавливает `Map`-структуру из JSON-строки, созданной через `getStringified`.
+Restores the `Map` structure from a JSON string created with `getStringified`.
 
-## Лицензия
+
+## Support ☕🤗
+
+If you find this package useful, you can
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/eugeniouglb)
+
+## License
 
 MIT
