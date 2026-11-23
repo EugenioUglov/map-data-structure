@@ -1,0 +1,27 @@
+{
+  "name": "map-data-structure",
+  "version": "1.0.0",
+  "description": "Utility class for serializing and deserializing JavaScript `Map` structures to and from JSON strings, including support for nested Maps.",
+  "main": "mapDataStructure.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "map",
+    "json",
+    "serialize",
+    "deserialize",
+    "datastructure"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "files": [
+    "mapDataStructure.js",
+    "README.md",
+    "LICENSE"
+  ]
+}
